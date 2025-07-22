@@ -6,11 +6,47 @@ import CaseStudies from './components/CaseStudies';
 import Footer from './components/Footer';
 import Button from './components/Button';
 import ScrollToTop from './components/ScrollToTop';
-import { TrendingUp, Shield, Target, ArrowRight, CheckCircle, Users, DollarSign, Globe, Building2, Zap, Award, Clock } from 'lucide-react';
+import { ArrowRight, CheckCircle, Users, Award, Clock } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { SERVICES } from '@/constants/services';
+import { MAIN_INDUSTRIES, ADDITIONAL_INDUSTRIES } from '@/constants/industries';
+import { COMPANY_INFO, CONTENT } from '@/constants/company';
+import { getIndustryColorClasses } from '@/utils/colorUtils';
+import type { HeroStat } from '@/types';
+
 export default function Home() {
+  const heroStats: HeroStat[] = [
+    { value: COMPANY_INFO.stats.clients, label: "Clients" },
+    { value: COMPANY_INFO.stats.valueCreated, label: "Value Created" },
+    { value: COMPANY_INFO.stats.industries, label: "Industries" }
+  ];
+
+  const aboutFeatures = [
+    {
+      icon: CheckCircle,
+      title: "Proven Track Record",
+      description: `${COMPANY_INFO.stats.valueCreated} in value created across ${COMPANY_INFO.stats.projects} successful engagements`
+    },
+    {
+      icon: Users,
+      title: "Expert Team",
+      description: "Experienced executives and industry specialists"
+    },
+    {
+      icon: Award,
+      title: "Tailored Solutions",
+      description: "Customized strategies aligned with your unique business objectives"
+    }
+  ];
+
+  const additionalStats = [
+    { value: COMPANY_INFO.stats.clientSatisfaction, label: "Client Satisfaction" },
+    { value: COMPANY_INFO.stats.avgROI, label: "Avg. ROI Increase" },
+    { value: COMPANY_INFO.stats.avgEngagement, label: "Avg. Engagement" }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -19,7 +55,7 @@ export default function Home() {
         variant="home"
         title="Strategic Excellence for"
         subtitle="Growing Businesses"
-        description="APEX Stratum Consulting delivers transformational results through strategic financial guidance, resource optimization, and expert advisory services. We partner with ambitious leaders to unlock growth potential and drive sustainable performance."
+        description={CONTENT.hero.description}
         primaryCta={{
           text: "Get Started",
           href: "/contact"
@@ -32,17 +68,13 @@ export default function Home() {
           src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80&auto=format&fit=crop",
           alt: "Strategic Business Consulting"
         }}
-        stats={[
-          { value: "50+", label: "Clients" },
-          { value: "$100M+", label: "Value Created" },
-          { value: "10+", label: "Industries" }
-        ]}
-        badge="✨ Transforming businesses since 2019"
+        stats={heroStats}
+        badge={CONTENT.hero.badge}
       />
 
       {/* Services Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto container-padding">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="heading-2 text-gray-900 mb-4">
               Expert Advisory Services
@@ -53,32 +85,7 @@ export default function Home() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {[
-              {
-                id: 'financial',
-                href: '/services/financial-performance',
-                icon: TrendingUp,
-                title: 'Financial Performance Enhancement',
-                description: 'Strategic financial analysis, performance optimization, and sustainable growth strategies',
-                color: 'blue'
-              },
-              {
-                id: 'resource',
-                href: '/services/resource-allocation',
-                icon: Target,
-                title: 'Resource Allocation Optimization',
-                description: 'Capital efficiency, resource distribution, and operational excellence frameworks',
-                color: 'green'
-              },
-              {
-                id: 'strategic',
-                href: '/services/strategic-guidance',
-                icon: Shield,
-                title: 'Strategic Guidance & Advisory',
-                description: 'M&A advisory, funding strategy, and transformational change management',
-                color: 'purple'
-              }
-            ].map((service) => {
+            {SERVICES.map((service) => {
               const Icon = service.icon;
               
               return (
@@ -127,35 +134,19 @@ export default function Home() {
 
       {/* About Section */}
       <section id="about" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto container-padding">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
             <div>
               <h2 className="heading-2 text-gray-900 mb-6">
-                Driving Exceptional Results Since 2019
+                {CONTENT.about.title}
               </h2>
               
               <p className="body-large text-gray-600 mb-8 leading-relaxed">
-                At APEX Stratum Consulting, we combine deep industry expertise with innovative analytical frameworks to deliver measurable business transformation. Our proven methodology has helped over 50 organizations achieve sustainable growth and operational excellence.
+                {CONTENT.about.description}
               </p>
               
               <div className="space-y-6">
-                {[
-                  {
-                    icon: CheckCircle,
-                    title: "Proven Track Record",
-                    description: "$100M+ in value created across 50+ successful engagements"
-                  },
-                  {
-                    icon: Users,
-                    title: "Expert Team",
-                    description: "Experienced executives and industry specialists"
-                  },
-                  {
-                    icon: Award,
-                    title: "Tailored Solutions",
-                    description: "Customized strategies aligned with your unique business objectives"
-                  }
-                ].map((item, index) => {
+                {aboutFeatures.map((item, index) => {
                   const Icon = item.icon;
                   return (
                     <div key={index} className="flex items-start">
@@ -195,19 +186,14 @@ export default function Home() {
                   src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80&auto=format&fit=crop"
                   alt="Professional Team Meeting"
                   fill
-                  style={{ objectFit: 'cover' }}
-                  className="transition-transform duration-500 hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
               
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 mt-8">
-                {[
-                  { value: "98%", label: "Client Satisfaction" },
-                  { value: "3.2x", label: "Avg. ROI Increase" },
-                  { value: "6mo", label: "Avg. Engagement" }
-                ].map((stat, index) => (
+                {additionalStats.map((stat, index) => (
                   <div key={index} className="text-center bg-white p-4 rounded-lg shadow-sm">
                     <div className="heading-4 text-blue-600 mb-1">
                       {stat.value}
@@ -225,7 +211,7 @@ export default function Home() {
 
       {/* Industries Section */}
       <section id="industries" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto container-padding">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="heading-2 text-gray-900 mb-4">
               Industries We Serve
@@ -236,48 +222,14 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: Building2,
-                title: "Technology",
-                description: "SaaS, fintech, and emerging tech companies",
-                color: "blue"
-              },
-              {
-                icon: DollarSign,
-                title: "Financial Services",
-                description: "Banks, investment firms, and insurance",
-                color: "green"
-              },
-              {
-                icon: Globe,
-                title: "Manufacturing",
-                description: "Industrial, automotive, and consumer goods",
-                color: "purple"
-              },
-              {
-                icon: Zap,
-                title: "Healthcare",
-                description: "Medical devices, pharma, and healthcare services",
-                color: "red"
-              }
-            ].map((industry, index) => {
+            {MAIN_INDUSTRIES.map((industry, index) => {
               const Icon = industry.icon;
+              const colorClasses = getIndustryColorClasses(industry.color);
               
               return (
                 <div key={index} className="text-center group hover:-translate-y-2 transition-all duration-300">
-                  <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center transition-all duration-300 ${
-                    industry.color === 'blue' ? 'bg-blue-100 group-hover:bg-blue-200' :
-                    industry.color === 'green' ? 'bg-green-100 group-hover:bg-green-200' :
-                    industry.color === 'purple' ? 'bg-purple-100 group-hover:bg-purple-200' :
-                    'bg-red-100 group-hover:bg-red-200'
-                  }`}>
-                    <Icon className={`h-8 w-8 ${
-                      industry.color === 'blue' ? 'text-blue-600' :
-                      industry.color === 'green' ? 'text-green-600' :
-                      industry.color === 'purple' ? 'text-purple-600' :
-                      'text-red-600'
-                    }`} />
+                  <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center transition-all duration-300 ${colorClasses.container}`}>
+                    <Icon className={`h-8 w-8 ${colorClasses.icon}`} />
                   </div>
                   
                   <h3 className="heading-5 text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
@@ -295,10 +247,7 @@ export default function Home() {
           {/* Additional Industries */}
           <div className="mt-16 text-center">
             <div className="inline-flex flex-wrap gap-3 justify-center">
-              {[
-                "Real Estate", "Energy", "Retail", "Education", "Media", "Transportation", 
-                "Agriculture", "Hospitality", "Professional Services", "Non-Profit"
-              ].map((industry, index) => (
+              {ADDITIONAL_INDUSTRIES.map((industry, index) => (
                 <span key={index} className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full body-small font-medium hover:bg-blue-50 hover:text-blue-700 transition-colors cursor-pointer">
                   {industry}
                 </span>
@@ -324,13 +273,13 @@ export default function Home() {
       
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 py-20">
-        <div className="max-w-7xl mx-auto container-padding text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="heading-2 text-white mb-6">
-            Ready to Transform Your Business?
+            {CONTENT.cta.title}
           </h2>
           
           <p className="body-large text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Join successful organizations that have partnered with APEX Stratum to achieve exceptional growth and operational excellence.
+            {CONTENT.cta.description}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -345,7 +294,7 @@ export default function Home() {
             </Button>
             
             <Button
-              href="tel:+1-555-123-4567"
+              href={`tel:${COMPANY_INFO.contact.phone}`}
               variant="outline"
               size="lg"
               className="border-2 border-white text-white hover:bg-white hover:text-blue-600"
