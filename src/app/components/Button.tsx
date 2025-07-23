@@ -18,13 +18,13 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(({
   type = 'button',
   ...props
 }, ref) => {
-  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden';
   
   const variantClasses = {
-    primary: 'bg-apex-gradient text-white hover:bg-apex-gradient-dark focus:ring-apex-green shadow-sm hover:shadow-md transform hover:scale-105',
-    secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-500',
-    outline: 'border border-apex-green text-apex-green hover:bg-green-50 focus:ring-apex-green',
-    ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-500'
+    primary: 'bg-emerald-600 text-white hover:bg-emerald-700 focus:ring-emerald-500 shadow-sm hover:shadow-md transform hover:scale-[1.02]',
+    secondary: 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100 focus:ring-emerald-500 border border-emerald-200',
+    outline: 'border border-gray-300 text-gray-700 hover:border-emerald-300 hover:text-emerald-700 focus:ring-emerald-500',
+    ghost: 'text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 focus:ring-emerald-500'
   };
 
   const sizeClasses = {

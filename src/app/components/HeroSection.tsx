@@ -41,33 +41,33 @@ export default function HeroSection({
 }: HeroSectionProps) {
   if (variant === 'home') {
     return (
-      <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-20 lg:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-50 via-green-50/30 to-emerald-50/20 py-20 lg:py-32 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-          <div className="absolute top-20 right-10 w-32 h-32 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-20 left-20 w-32 h-32 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+          <div className="absolute top-10 left-10 w-48 h-48 bg-emerald-200 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob"></div>
+          <div className="absolute top-20 right-10 w-48 h-48 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-20 left-20 w-48 h-48 bg-teal-200 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-4000"></div>
         </div>
         
         <div className="max-w-7xl mx-auto container-padding relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="fade-in">
               {badge && (
-                <div className="inline-block bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-blue-200">
+                <div className="inline-block bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-green-200">
                   {badge}
                 </div>
               )}
               
               <h1 className="heading-display text-gray-900 mb-6 slide-up">
                 {title}
-                {subtitle && <span className="text-gradient block">{subtitle}</span>}
+                {subtitle && <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent block">{subtitle}</span>}
               </h1>
               
               <p className="body-large text-gray-600 mb-8 leading-relaxed slide-up animation-delay-200">
                 {description}
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 mb-12 slide-up animation-delay-400">
+              <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-slide-up animation-delay-400">
                 {primaryCta && (
                   <Button
                     href={primaryCta.href}
@@ -97,7 +97,7 @@ export default function HeroSection({
                   <div className="flex items-center space-x-8">
                     {stats.map((stat, index) => (
                       <div key={index} className="text-center">
-                        <div className="heading-3 text-gray-900 mb-1">{stat.value}</div>
+                        <div className="heading-3 text-emerald-600 font-bold mb-1 group-hover:scale-110 transition-transform duration-300">{stat.value}</div>
                         <div className="body-small text-gray-600">{stat.label}</div>
                       </div>
                     ))}
@@ -138,10 +138,10 @@ export default function HeroSection({
                   </div>
                 </div>
               ) : (
-                <div className="relative h-96 w-full bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl shadow-2xl flex items-center justify-center">
+                <div className="relative h-96 w-full bg-gradient-to-br from-emerald-100 to-teal-100 rounded-2xl shadow-2xl flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-4 mx-auto shadow-lg">
-                      <ArrowRight className="h-8 w-8 text-blue-600" />
+                    <div className="w-20 h-20 bg-gradient-to-br from-emerald-50 to-green-50 rounded-full flex items-center justify-center mb-4 mx-auto shadow-lg">
+                      <ArrowRight className="h-8 w-8 text-green-600" />
                     </div>
                     <p className="text-gray-700 font-medium">Professional Excellence</p>
                   </div>
@@ -196,18 +196,18 @@ export default function HeroSection({
 
   // Service page variant
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 to-blue-50 py-20 lg:py-32">
+    <section className="relative bg-gradient-to-br from-gray-50 to-green-50/20 py-20 lg:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto container-padding">
         <div className="max-w-4xl">
           {badge && (
-            <div className="inline-block bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-blue-200">
+            <div className="inline-block bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-green-200">
               {badge}
             </div>
           )}
           
           <h1 className="heading-1 text-gray-900 mb-6 leading-tight">
             {title}
-            {subtitle && <span className="text-gradient"> {subtitle}</span>}
+            {subtitle && <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent"> {subtitle}</span>}
           </h1>
           
           <p className="body-large text-gray-600 mb-8 leading-relaxed">

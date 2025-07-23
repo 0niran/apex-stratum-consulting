@@ -48,7 +48,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-green-50/30 to-emerald-50/20">
+    <div className="min-h-screen bg-white">
       <Navigation />
       
       <HeroSection
@@ -65,7 +65,7 @@ export default function Home() {
           href: "#about"
         }}
         image={{
-          src: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80&auto=format&fit=crop",
+          src: "/hero-business.jpg",
           alt: "Strategic Business Consulting"
         }}
         stats={heroStats}
@@ -73,7 +73,9 @@ export default function Home() {
       />
 
       {/* Services Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 via-transparent to-teal-50/50 opacity-60"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="heading-2 text-gray-900 mb-4">
@@ -92,20 +94,20 @@ export default function Home() {
                 <Link 
                   key={service.id}
                   href={service.href}
-                  className="group relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-2"
+                  className="group relative bg-white/80 backdrop-blur-lg rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100/50 hover:border-emerald-300/50 hover:-translate-y-2 hover:bg-white/90"
                 >
                   <div className="flex items-center justify-between mb-6">
                     <div className={`p-3 rounded-xl ${
-                      service.color === 'emerald' ? 'bg-gradient-to-br from-emerald-100 to-emerald-200 text-apex-emerald' :
-                      service.color === 'green' ? 'bg-gradient-to-br from-green-100 to-green-200 text-apex-green' :
-                      'bg-gradient-to-br from-teal-100 to-teal-200 text-apex-teal'
-                    } group-hover:scale-110 transition-transform duration-300`}>
+                      service.color === 'emerald' ? 'bg-emerald-50 text-emerald-600' :
+                      service.color === 'green' ? 'bg-green-50 text-green-600' :
+                      'bg-teal-50 text-teal-600'
+                    } group-hover:scale-110 transition-transform duration-300 shadow-inner`}>
                       <Icon className="h-6 w-6" />
                     </div>
-                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-300" />
+                    <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-emerald-600 group-hover:translate-x-2 transition-all duration-300" />
                   </div>
                   
-                  <h3 className="heading-4 text-gray-900 mb-3 group-hover:text-apex-green transition-colors">
+                  <h3 className="heading-4 text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors duration-300">
                     {service.title}
                   </h3>
                   
@@ -118,9 +120,9 @@ export default function Home() {
                       variant="ghost"
                       size="sm"
                       icon="arrow"
-                      className={`p-0 ${service.color === 'emerald' ? 'text-apex-emerald hover:text-apex-emerald-dark' :
-                        service.color === 'green' ? 'text-apex-green hover:text-apex-green-dark' :
-                        'text-apex-teal hover:text-apex-teal-dark'}`}
+                      className={`p-0 ${service.color === 'emerald' ? 'text-emerald-600 hover:text-emerald-700' :
+                        service.color === 'green' ? 'text-green-600 hover:text-green-700' :
+                        'text-teal-600 hover:text-teal-700'}`}
                     >
                       Learn more
                     </Button>
@@ -133,7 +135,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gradient-to-r from-gray-50 via-green-50/40 to-emerald-50/30">
+      <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
             <div>
@@ -151,8 +153,8 @@ export default function Home() {
                   return (
                     <div key={index} className="flex items-start">
                       <div className="flex-shrink-0 mr-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-emerald-100 to-green-100 rounded-lg flex items-center justify-center">
-                          <Icon className="h-6 w-6 text-apex-green" />
+                        <div className="w-12 h-12 bg-emerald-50 rounded-lg flex items-center justify-center">
+                          <Icon className="h-6 w-6 text-emerald-600" />
                         </div>
                       </div>
                       <div>
@@ -183,7 +185,7 @@ export default function Home() {
             <div className="mt-12 lg:mt-0">
               <div className="relative h-80 w-full overflow-hidden rounded-2xl shadow-xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80&auto=format&fit=crop"
+                  src="/team-meeting.jpg"
                   alt="Professional Team Meeting"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -195,7 +197,7 @@ export default function Home() {
               <div className="grid grid-cols-3 gap-6 mt-8">
                 {additionalStats.map((stat, index) => (
                   <div key={index} className="text-center bg-white p-4 rounded-lg shadow-sm">
-                    <div className="heading-4 text-apex-green mb-1">
+                    <div className="heading-4 text-emerald-600 mb-1">
                       {stat.value}
                     </div>
                     <div className="body-small text-gray-600">
@@ -210,7 +212,7 @@ export default function Home() {
       </section>
 
       {/* Industries Section */}
-      <section id="industries" className="py-20 bg-white">
+      <section id="industries" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="heading-2 text-gray-900 mb-4">
@@ -232,7 +234,7 @@ export default function Home() {
                     <Icon className={`h-8 w-8 ${colorClasses.icon}`} />
                   </div>
                   
-                  <h3 className="heading-5 text-gray-900 mb-3 group-hover:text-apex-green transition-colors">
+                  <h3 className="heading-5 text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors">
                     {industry.title}
                   </h3>
                   
@@ -260,7 +262,7 @@ export default function Home() {
                 href="/contact"
                 variant="ghost"
                 icon="arrow"
-                className="text-apex-green hover:text-apex-green-dark"
+                className="text-emerald-600 hover:text-emerald-700"
               >
                 Contact us to discuss your needs
               </Button>
@@ -269,16 +271,23 @@ export default function Home() {
         </div>
       </section>
 
-      <CaseStudies />
+      <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-50/20 to-transparent"></div>
+        <CaseStudies />
+      </div>
       
       {/* CTA Section */}
-      <section className="bg-apex-gradient py-20 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 py-20 relative overflow-hidden animate-gradient-shift bg-[length:200%_auto]">
+        {/* Animated background patterns */}
+        <div className="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px]"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-400 rounded-full filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-400 rounded-full filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="heading-2 text-white mb-6">
             {CONTENT.cta.title}
           </h2>
           
-          <p className="body-large text-green-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="body-large text-emerald-50 mb-10 max-w-3xl mx-auto leading-relaxed">
             {CONTENT.cta.description}
           </p>
           
@@ -288,7 +297,7 @@ export default function Home() {
               variant="secondary"
               size="lg"
               icon="arrow"
-              className="bg-white text-apex-green hover:bg-gray-50 shadow-lg hover:shadow-xl"
+              className="bg-white/95 backdrop-blur text-emerald-600 hover:bg-white shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             >
               Start Your Transformation
             </Button>
@@ -297,13 +306,13 @@ export default function Home() {
               href={`tel:${COMPANY_INFO.contact.phone}`}
               variant="outline"
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-apex-green"
+              className="border-2 border-white/80 text-white hover:bg-white/10 hover:border-white backdrop-blur-sm transition-all duration-300"
             >
               📞 Schedule a Call
             </Button>
           </div>
           
-          <div className="mt-12 flex items-center justify-center space-x-8 text-green-200">
+          <div className="mt-12 flex items-center justify-center space-x-8 text-emerald-100">
             <div className="flex items-center">
               <Clock className="h-5 w-5 mr-2" />
               <span className="body-small">Quick 30-min consultation</span>

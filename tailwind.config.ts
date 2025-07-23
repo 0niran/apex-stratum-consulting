@@ -67,6 +67,11 @@ const config: Config = {
         'blob': 'blob 7s infinite',
         'float': 'float 6s ease-in-out infinite',
         'bounce-slow': 'bounce 3s infinite',
+        'shimmer': 'shimmer 2s linear infinite',
+        'glow': 'glow 2s ease-in-out infinite alternate',
+        'gradient-xy': 'gradient-xy 15s ease infinite',
+        'gradient-shift': 'gradient-shift 8s ease infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         fadeIn: {
@@ -90,6 +95,24 @@ const config: Config = {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' }
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-1000px 0' },
+          '100%': { backgroundPosition: '1000px 0' }
+        },
+        glow: {
+          '0%': { boxShadow: '0 0 20px rgba(16, 185, 129, 0.5)' },
+          '100%': { boxShadow: '0 0 30px rgba(16, 185, 129, 0.8), 0 0 40px rgba(16, 185, 129, 0.6)' }
+        },
+        'gradient-xy': {
+          '0%, 100%': { backgroundPosition: 'left top' },
+          '25%': { backgroundPosition: 'right top' },
+          '50%': { backgroundPosition: 'right bottom' },
+          '75%': { backgroundPosition: 'left bottom' }
+        },
+        'gradient-shift': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' }
         }
       },
       backgroundImage: {
@@ -105,7 +128,11 @@ const config: Config = {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
         'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
         'large': '0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 20px 25px -5px rgba(0, 0, 0, 0.1)',
-        'glow': '0 0 20px rgba(59, 130, 246, 0.15)',
+        'glow': '0 0 20px rgba(16, 185, 129, 0.15)',
+        'glow-emerald': '0 0 30px rgba(16, 185, 129, 0.3)',
+        'inner-glow': 'inset 0 2px 4px 0 rgba(16, 185, 129, 0.06)',
+        'neumorphic': '20px 20px 60px #d1d5db, -20px -20px 60px #ffffff',
+        'neumorphic-inset': 'inset 20px 20px 60px #d1d5db, inset -20px -20px 60px #ffffff',
       },
       borderRadius: {
         '4xl': '2rem',

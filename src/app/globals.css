@@ -19,6 +19,9 @@
   --apex-gray-900: #0f172a;
   --apex-green: #059669;
   --apex-green-light: #10b981;
+  --apex-emerald: #10b981;
+  --apex-emerald-light: #34d399;
+  --apex-teal: #14b8a6;
   --apex-purple: #7c3aed;
   --apex-purple-light: #8b5cf6;
   --apex-accent: #f59e0b;
@@ -145,7 +148,7 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--apex-blue), var(--apex-purple));
+  background: linear-gradient(135deg, var(--apex-emerald), var(--apex-teal));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -215,4 +218,54 @@ body {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Premium animations */
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
+
+/* Grid background */
+.bg-grid-white\/10 {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+}
+
+/* Premium hover effects */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+}
+
+/* Shimmer effect */
+.shimmer {
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.7) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
 }

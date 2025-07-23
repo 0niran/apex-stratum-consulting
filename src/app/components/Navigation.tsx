@@ -86,10 +86,10 @@ export default function Navigation({ currentService }: NavigationProps) {
   );
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-soft border-b border-gray-100' 
-        : 'bg-white/80 backdrop-blur-sm'
+        ? 'bg-white/90 backdrop-blur-xl shadow-lg border-b border-gray-200/50' 
+        : 'bg-white/70 backdrop-blur-md'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -101,7 +101,7 @@ export default function Navigation({ currentService }: NavigationProps) {
                 alt="APEX Stratum"
                 width={240}
                 height={96}
-                className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
+                className="h-16 w-auto transition-all duration-500 group-hover:scale-110 filter group-hover:brightness-110"
                 priority
               />
             </Link>
@@ -109,31 +109,41 @@ export default function Navigation({ currentService }: NavigationProps) {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
-            {/* Services Dropdown */}
+            {/* Home Link - First */}
+            <Link 
+              href="/" 
+              className="text-gray-700 hover:text-emerald-600 px-4 py-2 text-sm font-medium rounded-lg hover:bg-emerald-50 transition-all duration-200"
+            >
+              Home
+            </Link>
+
+            {/* Services Dropdown - Second */}
             <div className="relative group">
-              <button className="text-gray-600 hover:text-gray-900 px-4 py-2 text-sm font-medium flex items-center rounded-lg hover:bg-gray-50 transition-all duration-200">
+              <button className="text-gray-700 hover:text-emerald-600 px-4 py-2 text-sm font-medium flex items-center rounded-lg hover:bg-emerald-50 transition-all duration-200">
                 Services
-                <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
+                <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-500 group-hover:rotate-180" />
               </button>
               
               {/* Dropdown menu */}
-              <div className="absolute left-0 mt-1 w-80 rounded-xl shadow-xl bg-white ring-1 ring-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+              <div className="absolute left-0 mt-1 w-80 rounded-xl shadow-2xl bg-white/95 backdrop-blur-lg ring-1 ring-gray-200/50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 border border-white/50">
                 {renderServiceDropdown(SERVICES)}
               </div>
             </div>
 
-            {/* Regular Navigation Links */}
-            <Link 
-              href="/#industries" 
-              className="text-gray-600 hover:text-gray-900 px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-50 transition-all duration-200"
-            >
-              Industries
-            </Link>
+            {/* About Link - Third */}
             <Link 
               href="/#about" 
-              className="text-gray-600 hover:text-gray-900 px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-50 transition-all duration-200"
+              className="text-gray-700 hover:text-emerald-600 px-4 py-2 text-sm font-medium rounded-lg hover:bg-emerald-50 transition-all duration-200"
             >
               About
+            </Link>
+
+            {/* Contact Us Link - Fourth */}
+            <Link 
+              href="/contact" 
+              className="text-gray-700 hover:text-emerald-600 px-4 py-2 text-sm font-medium rounded-lg hover:bg-emerald-50 transition-all duration-200"
+            >
+              Contact Us
             </Link>
           </div>
 
@@ -141,7 +151,7 @@ export default function Navigation({ currentService }: NavigationProps) {
           <div className="lg:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 hover:text-gray-900 p-2 rounded-lg hover:bg-gray-50 transition-colors"
+              className="text-gray-700 hover:text-emerald-600 p-2 rounded-lg hover:bg-emerald-50 transition-colors"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {isMenuOpen ? (
@@ -160,29 +170,37 @@ export default function Navigation({ currentService }: NavigationProps) {
             : 'max-h-0 opacity-0 overflow-hidden'
         }`}>
           <div className="pt-4 pb-3 space-y-3">
-            {/* Mobile Services */}
-            <div className="space-y-2">
-              <div className="px-3 py-2 text-sm font-semibold text-gray-700 uppercase tracking-wider">
-                Services
-              </div>
-              {renderServiceDropdown(SERVICES, true)}
-            </div>
-
             {/* Mobile Navigation Links */}
-            <div className="border-t border-gray-200 pt-4 space-y-2">
+            <div className="space-y-2">
               <Link
-                href="/#industries"
+                href="/"
                 className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Industries
+                Home
               </Link>
+
+              {/* Mobile Services Section */}
+              <div className="space-y-2">
+                <div className="px-3 py-2 text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                  Services
+                </div>
+                {renderServiceDropdown(SERVICES, true)}
+              </div>
+
               <Link
                 href="/#about"
                 className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
+              </Link>
+              <Link
+                href="/contact"
+                className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact Us
               </Link>
             </div>
           </div>
