@@ -9,13 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // APEX brand colors
-        'apex-navy': '#0f172a',
-        'apex-slate': '#1e293b', 
-        'apex-blue': '#1e40af',
-        'apex-blue-light': '#3b82f6',
-        'apex-gray': '#64748b',
-        'apex-gray-light': '#94a3b8',
+        // APEX brand colors - Green theme inspired by logo
+        'apex-navy': '#1f2937',  // Dark charcoal from logo text
+        'apex-slate': '#374151', 
+        'apex-emerald': '#10b981', // Bright green from logo
+        'apex-emerald-light': '#34d399',
+        'apex-emerald-dark': '#047857',
+        'apex-green': '#22c55e', // Medium green from logo
+        'apex-green-light': '#4ade80',
+        'apex-green-dark': '#15803d',
+        'apex-teal': '#14b8a6', // Teal accent
+        'apex-teal-light': '#2dd4bf',
+        'apex-teal-dark': '#0f766e',
+        'apex-gray': '#6b7280',
+        'apex-gray-light': '#9ca3af',
       },
       fontFamily: {
         sans: [
@@ -89,6 +96,10 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'text-gradient': 'linear-gradient(135deg, var(--tw-gradient-stops))',
+        'apex-gradient': 'linear-gradient(135deg, #22c55e 0%, #10b981 50%, #14b8a6 100%)',
+        'apex-gradient-dark': 'linear-gradient(135deg, #15803d 0%, #047857 50%, #0f766e 100%)',
+        'apex-gradient-light': 'linear-gradient(135deg, #4ade80 0%, #34d399 50%, #2dd4bf 100%)',
+        'apex-gradient-radial': 'radial-gradient(ellipse at center, #22c55e 0%, #10b981 50%, #14b8a6 100%)',
       },
       boxShadow: {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',

@@ -60,20 +60,20 @@ export default function Navigation({ currentService }: NavigationProps) {
             <div className="ml-4">
               <h3 className={`text-sm font-semibold ${
                 isActive 
-                  ? service.color === 'blue' ? 'text-blue-700' :
-                    service.color === 'green' ? 'text-green-700' :
-                    'text-purple-700'
-                  : `group-hover/item:${service.color === 'blue' ? 'text-blue-600' :
-                      service.color === 'green' ? 'text-green-600' :
-                      'text-purple-600'}`
+                  ? service.color === 'emerald' ? 'text-apex-emerald-dark' :
+                    service.color === 'green' ? 'text-apex-green-dark' :
+                    'text-apex-teal-dark'
+                  : `group-hover/item:${service.color === 'emerald' ? 'text-apex-emerald' :
+                      service.color === 'green' ? 'text-apex-green' :
+                      'text-apex-teal'}`
               }`}>
                 {service.title}
               </h3>
               <p className={`text-xs mt-1 ${
                 isActive 
-                  ? service.color === 'blue' ? 'text-blue-600' :
-                    service.color === 'green' ? 'text-green-600' :
-                    'text-purple-600'
+                  ? service.color === 'emerald' ? 'text-apex-emerald' :
+                    service.color === 'green' ? 'text-apex-green' :
+                    'text-apex-teal'
                   : 'text-gray-500'
               }`}>
                 {service.description}

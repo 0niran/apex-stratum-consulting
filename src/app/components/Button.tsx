@@ -21,9 +21,9 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(({
   const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variantClasses = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 shadow-sm hover:shadow-md transform hover:scale-105',
+    primary: 'bg-apex-gradient text-white hover:bg-apex-gradient-dark focus:ring-apex-green shadow-sm hover:shadow-md transform hover:scale-105',
     secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-500',
-    outline: 'border border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-gray-500',
+    outline: 'border border-apex-green text-apex-green hover:bg-green-50 focus:ring-apex-green',
     ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-500'
   };
 

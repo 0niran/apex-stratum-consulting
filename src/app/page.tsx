@@ -48,7 +48,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-white via-green-50/30 to-emerald-50/20">
       <Navigation />
       
       <HeroSection
@@ -96,16 +96,16 @@ export default function Home() {
                 >
                   <div className="flex items-center justify-between mb-6">
                     <div className={`p-3 rounded-xl ${
-                      service.color === 'blue' ? 'bg-blue-100 text-blue-600' :
-                      service.color === 'green' ? 'bg-green-100 text-green-600' :
-                      'bg-purple-100 text-purple-600'
+                      service.color === 'emerald' ? 'bg-gradient-to-br from-emerald-100 to-emerald-200 text-apex-emerald' :
+                      service.color === 'green' ? 'bg-gradient-to-br from-green-100 to-green-200 text-apex-green' :
+                      'bg-gradient-to-br from-teal-100 to-teal-200 text-apex-teal'
                     } group-hover:scale-110 transition-transform duration-300`}>
                       <Icon className="h-6 w-6" />
                     </div>
                     <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all duration-300" />
                   </div>
                   
-                  <h3 className="heading-4 text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <h3 className="heading-4 text-gray-900 mb-3 group-hover:text-apex-green transition-colors">
                     {service.title}
                   </h3>
                   
@@ -118,9 +118,9 @@ export default function Home() {
                       variant="ghost"
                       size="sm"
                       icon="arrow"
-                      className={`p-0 ${service.color === 'blue' ? 'text-blue-600 hover:text-blue-700' :
-                        service.color === 'green' ? 'text-green-600 hover:text-green-700' :
-                        'text-purple-600 hover:text-purple-700'}`}
+                      className={`p-0 ${service.color === 'emerald' ? 'text-apex-emerald hover:text-apex-emerald-dark' :
+                        service.color === 'green' ? 'text-apex-green hover:text-apex-green-dark' :
+                        'text-apex-teal hover:text-apex-teal-dark'}`}
                     >
                       Learn more
                     </Button>
@@ -133,7 +133,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gray-50">
+      <section id="about" className="py-20 bg-gradient-to-r from-gray-50 via-green-50/40 to-emerald-50/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
             <div>
@@ -151,8 +151,8 @@ export default function Home() {
                   return (
                     <div key={index} className="flex items-start">
                       <div className="flex-shrink-0 mr-4">
-                        <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                          <Icon className="h-6 w-6 text-blue-600" />
+                        <div className="w-12 h-12 bg-gradient-to-br from-emerald-100 to-green-100 rounded-lg flex items-center justify-center">
+                          <Icon className="h-6 w-6 text-apex-green" />
                         </div>
                       </div>
                       <div>
@@ -195,7 +195,7 @@ export default function Home() {
               <div className="grid grid-cols-3 gap-6 mt-8">
                 {additionalStats.map((stat, index) => (
                   <div key={index} className="text-center bg-white p-4 rounded-lg shadow-sm">
-                    <div className="heading-4 text-blue-600 mb-1">
+                    <div className="heading-4 text-apex-green mb-1">
                       {stat.value}
                     </div>
                     <div className="body-small text-gray-600">
@@ -232,7 +232,7 @@ export default function Home() {
                     <Icon className={`h-8 w-8 ${colorClasses.icon}`} />
                   </div>
                   
-                  <h3 className="heading-5 text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <h3 className="heading-5 text-gray-900 mb-3 group-hover:text-apex-green transition-colors">
                     {industry.title}
                   </h3>
                   
@@ -260,7 +260,7 @@ export default function Home() {
                 href="/contact"
                 variant="ghost"
                 icon="arrow"
-                className="text-blue-600 hover:text-blue-700"
+                className="text-apex-green hover:text-apex-green-dark"
               >
                 Contact us to discuss your needs
               </Button>
@@ -272,13 +272,13 @@ export default function Home() {
       <CaseStudies />
       
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 py-20">
+      <section className="bg-apex-gradient py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="heading-2 text-white mb-6">
             {CONTENT.cta.title}
           </h2>
           
-          <p className="body-large text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="body-large text-green-100 mb-10 max-w-3xl mx-auto leading-relaxed">
             {CONTENT.cta.description}
           </p>
           
@@ -288,7 +288,7 @@ export default function Home() {
               variant="secondary"
               size="lg"
               icon="arrow"
-              className="bg-white text-blue-600 hover:bg-gray-50 shadow-lg hover:shadow-xl"
+              className="bg-white text-apex-green hover:bg-gray-50 shadow-lg hover:shadow-xl"
             >
               Start Your Transformation
             </Button>
@@ -297,13 +297,13 @@ export default function Home() {
               href={`tel:${COMPANY_INFO.contact.phone}`}
               variant="outline"
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-600"
+              className="border-2 border-white text-white hover:bg-white hover:text-apex-green"
             >
               📞 Schedule a Call
             </Button>
           </div>
           
-          <div className="mt-12 flex items-center justify-center space-x-8 text-blue-200">
+          <div className="mt-12 flex items-center justify-center space-x-8 text-green-200">
             <div className="flex items-center">
               <Clock className="h-5 w-5 mr-2" />
               <span className="body-small">Quick 30-min consultation</span>

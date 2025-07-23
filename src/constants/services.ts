@@ -8,7 +8,7 @@ export const SERVICES: Service[] = [
     icon: TrendingUp,
     title: 'Financial Performance Enhancement',
     description: 'Strategic financial analysis, performance optimization, and sustainable growth strategies',
-    color: 'blue'
+    color: 'emerald'
   },
   {
     id: 'resource',
@@ -24,7 +24,7 @@ export const SERVICES: Service[] = [
     icon: Shield,
     title: 'Strategic Guidance & Advisory',
     description: 'M&A advisory, funding strategy, and transformational change management',
-    color: 'purple'
+    color: 'teal'
   }
 ];
 

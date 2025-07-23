@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react';
 
 // Service-related types
 export type ServiceId = 'financial' | 'resource' | 'strategic';
-export type ServiceColor = 'blue' | 'green' | 'purple';
+export type ServiceColor = 'emerald' | 'green' | 'teal';
 
 export interface Service {
   id: ServiceId;

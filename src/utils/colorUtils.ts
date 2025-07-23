@@ -13,26 +13,26 @@ interface ColorMap {
 }
 
 const COLOR_MAP: ColorMap = {
-  blue: {
-    background: 'bg-blue-100',
-    text: 'text-blue-600',
-    border: 'border-blue-200',
-    hover: 'hover:bg-blue-200',
-    ring: 'ring-blue-500'
+  emerald: {
+    background: 'bg-emerald-100',
+    text: 'text-apex-emerald',
+    border: 'border-emerald-200',
+    hover: 'hover:bg-emerald-200',
+    ring: 'ring-apex-emerald'
   },
   green: {
     background: 'bg-green-100',
-    text: 'text-green-600', 
+    text: 'text-apex-green', 
     border: 'border-green-200',
     hover: 'hover:bg-green-200',
-    ring: 'ring-green-500'
+    ring: 'ring-apex-green'
   },
-  purple: {
-    background: 'bg-purple-100',
-    text: 'text-purple-600',
-    border: 'border-purple-200', 
-    hover: 'hover:bg-purple-200',
-    ring: 'ring-purple-500'
+  teal: {
+    background: 'bg-teal-100',
+    text: 'text-apex-teal',
+    border: 'border-teal-200', 
+    hover: 'hover:bg-teal-200',
+    ring: 'ring-apex-teal'
   },
   red: {
     background: 'bg-red-100',
