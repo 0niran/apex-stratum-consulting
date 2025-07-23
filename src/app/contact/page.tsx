@@ -5,7 +5,7 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
 import ScrollToTop from '../components/ScrollToTop';
-import { Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
+import { Mail, Phone, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ContactPage() {
@@ -141,7 +141,7 @@ export default function ContactPage() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Fill out the form below and we'll be in touch within 24 hours to discuss your business objectives.
+              Fill out the form below and we&apos;ll be in touch within 24 hours to discuss your business objectives.
             </p>
           </div>
           
@@ -155,7 +155,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900">Contact Information</h3>
-                    <p className="text-gray-600">Let's discuss your business goals</p>
+                    <p className="text-gray-600">Let&apos;s discuss your business goals</p>
                   </div>
                 </div>
                 <form onSubmit={handleSubmit} className="space-y-8">
